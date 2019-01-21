@@ -1,16 +1,20 @@
 {
-  "name": "2019",
+  "name": "reactstarter",
   "version": "1.0.0",
-  "description": "",
+  "description": "react starter",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Komsomol/react-starter.git"
+  },
+  "keywords": ["react", "javascript", "starter"],
+  "author": "farhad agzamov",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
