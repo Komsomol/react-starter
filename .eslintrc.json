@@ -4,6 +4,7 @@
     },
     "extends": "eslint:recommended",
     "parserOptions": {
+        "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         },
@@ -13,13 +14,12 @@
         "react"
     ],
     "rules": {
+        "no-undef":"off",
+        "no-unused-vars":"off",
+        "no-console":"off",
         "indent": [
             "error",
             "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
         ],
         "quotes": [
             "error",
