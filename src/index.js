@@ -5,6 +5,8 @@ import ReactDOM from "react-dom"
 import { APIGetter } from "./js/api-getter"
 import { Input } from "./js/input-component"
 
+import css from "./css/main.css"
+
 export default class Index extends Component {
 	constructor(props){
 		super(props)
