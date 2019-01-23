@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import Item from "./item-render"
 
 export class APIGetter extends Component {
 	constructor(props){
@@ -10,7 +11,7 @@ export class APIGetter extends Component {
 	}
 
 	componentWillMount(){
-		const url = "https://www.reddit.com/r/cats.json"
+		const url = `https://api.tvmaze.com/search/shows?q=${this.props.name}`
 
 		this.setState({
 			loading:true
@@ -19,8 +20,11 @@ export class APIGetter extends Component {
 		fetch(url)
 			.then( response => response.json())
 			.then( json => {
+				
+				console.log(json)
+
 				this.setState({
-					data : json.data.children,
+					data : json,
 					loading:false
 				})
 			})
@@ -28,7 +32,6 @@ export class APIGetter extends Component {
 	}
 
 	render() {
-		console.log(this.state.loading)
 		const info = this.state.data
 
 		if(this.state.loading){
@@ -38,11 +41,13 @@ export class APIGetter extends Component {
 				<ul>
 					{
 						info.map(function(item, index){
-							console.log(item.data)
+							console.log(item.show.name)
 							return(
-								<li>
-									<a href={item.data.url}>{item.data.title}</a>
-								</li>
+								<Item 
+									key={item.show.id}
+									link={item.show.officialSite}
+									name={item.show.name}
+								/>
 							)
 						})
 					}
