@@ -6,7 +6,7 @@ class Item extends Component {
 		if(this.props.link){
 			return (
 				<li key={this.props.key}>
-					<a href={this.props.link} target="_blank">{this.props.name}</a>
+					<p><a href={this.props.link} target="_blank">{this.props.name}</a></p>
 				</li>
 			)
 		} else {
