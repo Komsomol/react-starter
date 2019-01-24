@@ -1,48 +1,44 @@
-console.log("index.js called")
-
-import React, { Component } from "react"
+import React from "react"
 import ReactDOM from "react-dom"
-import { APIGetter } from "./js/api-getter"
-import { Input } from "./js/input-component"
-
 import css from "./css/main.css"
+import { Input } from "./js/input-component"
+import { Find } from "./js/find"
 
-export default class Index extends Component {
+class App extends React.Component {
+
 	constructor(props){
 		super(props)
 		this.state = {
-			showname:null
+			searchedText : "",
+			fireSearch : false
 		}
 
-		this.handleReturn = this.handleReturn.bind(this)
+		this.handleSearchResult = this.handleSearchResult.bind(this)
 	}
-	
-	handleReturn(data){
-		console.log("passed data is", data) 
-		
+
+	handleSearchResult(value){
 		this.setState({
-			showname:data
+			searchedText:value,
+			fireSearch: true
 		})
 	}
 
-	render() {
-		if(this.state.showname) {
-			return (
+	render() { 
+		if(this.state.searchedText){
+			return ( 
 				<div>
-					<APIGetter name={this.state.showname} />
+					<Input callBack={this.handleSearchResult}/>
+					<Find name={this.state.searchedText}/>
 				</div>
-			)
+			)			
 		} else {
-			return (
+			return ( 
 				<div>
-					<Input callBack={this.handleReturn}/>
+					<Input callBack={this.handleSearchResult}/>
 				</div>
 			)
 		}
 	}
 }
-
-
  
-
-ReactDOM.render(<Index/>, document.getElementById("app"))
+ReactDOM.render(<App />, document.getElementById("app"))

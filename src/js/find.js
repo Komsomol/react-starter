@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Item from "./item-render"
 
-export class APIGetter extends Component {
+export class Find extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
@@ -11,11 +11,15 @@ export class APIGetter extends Component {
 	}
 
 	componentWillMount(){
-		const url = `https://api.tvmaze.com/search/shows?q=${this.props.name}`
+		this.apiCall()
+	}
 
+	apiCall(){
+				
 		this.setState({
 			loading:true
 		})
+		const url = `https://api.tvmaze.com/search/shows?q=${this.props.name}`
 
 		fetch(url)
 			.then( response => response.json())
@@ -24,12 +28,21 @@ export class APIGetter extends Component {
 				console.log(json)
 
 				this.setState({
+					searched: this.props.name,
 					data : json,
 					loading:false
 				})
 			})
 			.catch( error => console.error(error))
 	}
+
+	componentDidUpdate(prevProps, prevState){
+		if(this.props.name !== prevProps.name){
+			console.log("NO MATCH. UPDATE!")
+			this.apiCall()
+		}
+	}
+
 
 	render() {
 		const info = this.state.data
@@ -38,23 +51,12 @@ export class APIGetter extends Component {
 			return (<p> Loading </p>)
 		} else {
 			return (
-				<ul>
-					{
-						info.map(function(item, index){
-							console.log(item.show.name)
-							return(
-								<Item 
-									key={item.show.id}
-									link={item.show.officialSite}
-									name={item.show.name}
-								/>
-							)
-						})
-					}
-				</ul>
+				<div>
+					<Item name={this.props.name} data={info} />
+				</div>
 			)
 		}
 	}
 }
 
-export default APIGetter
+export default Find
