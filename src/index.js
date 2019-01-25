@@ -27,14 +27,14 @@ class App extends React.Component {
 		if(this.state.searchedText){
 			return ( 
 				<div>
-					<Input className="col-md-3 offset-md-3" callBack={this.handleSearchResult}/>
+					<Input callBack={this.handleSearchResult}/>
 					<Find name={this.state.searchedText}/>
 				</div>
 			)			
 		} else {
 			return ( 
 				<div>
-					<Input className="col-md-3 offset-md-3" callBack={this.handleSearchResult}/>
+					<Input callBack={this.handleSearchResult}/>
 				</div>
 			)
 		}
