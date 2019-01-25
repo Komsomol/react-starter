@@ -1,3 +1,23 @@
 body{
     background-color:#e7e7e7;
 }
+
+/* This is the LI that holds all items */
+.card-holder{
+    list-style-type: none;
+}
+
+/* This is each individual item itself */
+.card-item{
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.card-item p{
+     margin-left: 1em;
+}
+
+.item-no-image{
+    width:210px;
+    height:295px;
+}
