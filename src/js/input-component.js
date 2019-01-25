@@ -27,7 +27,7 @@ export class Input extends Component {
 
 	render() { 
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form className="offset-md-3" onSubmit={this.handleSubmit}>
 				<label>
 					<input 
 						type="text" 

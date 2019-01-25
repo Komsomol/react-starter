@@ -22,7 +22,7 @@ class LinkHandler extends Component{
 	}
 }
 
-class SummaryHanlder extends Component{
+class SummaryHandler extends Component{
 	render (){
 		// console.log(this.props.info)
 		if(this.props.info == null || this.props.info == ""){
@@ -44,9 +44,11 @@ class CardDisplay extends Component{
 							<LinkHandler href={item.show.officialSite} name={item.show.name} />
 							<div>
 								<div className="card-item">
-									<ImageHandler src={item.show.image} />
+									<div className="card-image-holder">
+										<ImageHandler src={item.show.image} />
+									</div>
 									<div>
-										<SummaryHanlder info={item.show.summary} />
+										<SummaryHandler info={item.show.summary} />
 										<p>First aired on {new Date(item.show.premiered).toDateString()}</p>
 										<p>Rating</p>
 										<p>{item.show.rating.average}</p>
