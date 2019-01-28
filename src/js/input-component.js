@@ -2,19 +2,20 @@ import React, { Component } from "react"
 
 const InputComponent = (props) =>{
 	return (
-		<form className="form-inline" onSubmit={props.onSubmit}>
-			<div className="form-group mx-sm-3 mb-2">
-				<input 
-					className="form-control"
-					type="text" 
-					autoComplete="true" 
-					placeholder={props.placeholder} 
-					value={props.value}
-					onChange={props.onChange}/>
-				<button type="submit" className="btn btn-primary">Submit</button>
-			</div>
-
-		</form>
+		<div className="container">
+			<form className="form-inline" onSubmit={props.onSubmit}>
+				<div className="form-group mx-sm-3 mb-2">
+					<input 
+						className="form-control"
+						type="text" 
+						autoComplete="true" 
+						placeholder={props.placeholder} 
+						value={props.value}
+						onChange={props.onChange}/>
+					<button type="submit" className="btn btn-primary">Submit</button>
+				</div>
+			</form>
+		</div>
 	)
 }
 
