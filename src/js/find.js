@@ -24,8 +24,6 @@ export class Find extends Component {
 		fetch(url)
 			.then( response => response.json())
 			.then( json => {
-				
-				console.log(json)
 
 				this.setState({
 					searched: this.props.name,
@@ -38,7 +36,6 @@ export class Find extends Component {
 
 	componentDidUpdate(prevProps, prevState){
 		if(this.props.name !== prevProps.name){
-			console.log("NO MATCH. UPDATE!")
 			this.apiCall()
 		}
 	}

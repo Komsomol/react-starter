@@ -1,18 +1,19 @@
 import React, { Component } from "react"
 
 const InputComponent = (props) =>{
-	console.log(props)
 	return (
-		<form className="offset-md-3" onSubmit={props.onSubmit}>
-			<label>
+		<form className="form-inline" onSubmit={props.onSubmit}>
+			<div className="form-group mx-sm-3 mb-2">
 				<input 
+					className="form-control"
 					type="text" 
 					autoComplete="true" 
 					placeholder={props.placeholder} 
 					value={props.value}
 					onChange={props.onChange}/>
-			</label>
-			<input type="submit" value="Submit" />
+				<button type="submit" className="btn btn-primary">Submit</button>
+			</div>
+
 		</form>
 	)
 }
@@ -36,7 +37,6 @@ export class Input extends Component {
 	}
 
 	handleSubmit(event){
-		console.log("Submitted", this.state.value)
 		event.preventDefault()
 
 		this.props.callBack(this.state.value)
