@@ -1,35 +1,29 @@
 import React, { Component } from "react"
 
 // Handle images since some return as null
-class ImageHandler extends Component{
-	render(){ 
-		if(this.props.src == null){
-			return (<div className="item-no-image"><p>No Image</p></div>)
-		} else {
-			return (<img src={this.props.src.medium} />)
-		}
+const ImageHandler = (props) =>{
+	if(props.src == null){
+		return (<div className="item-no-image"><p>No Image</p></div>)
+	} else {
+		return (<img src={props.src.medium} />)
 	}
+
 }
 
 // Handle links since some are null
-class LinkHandler extends Component{
-	render(){
-		if(this.props.href == null){
-			return (<h4>{this.props.name}</h4>)
-		} else {
-			return (<h4><a target="_blank" href={this.props.href}>{this.props.name}</a></h4>)
-		}
+const LinkHandler = (props) =>{
+	if(props.href == null){
+		return (<h4>{props.name}</h4>)
+	} else {
+		return (<h4><a target="_blank" href={props.href}>{props.name}</a></h4>)
 	}
 }
 
-class SummaryHandler extends Component{
-	render (){
-		// console.log(this.props.info)
-		if(this.props.info == null || this.props.info == ""){
-			return <p>No summary available</p>
-		} else {
-			return <p>{(this.props.info).replace(/<\/?[^>]+(>|$)/g, "")}</p>
-		}
+const SummaryHandler = (props) =>{
+	if(props.info == null || props.info == ""){
+		return <p>No summary available</p>
+	} else {
+		return <p>{(props.info).replace(/<\/?[^>]+(>|$)/g, "")}</p>
 	}
 }
 

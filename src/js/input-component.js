@@ -1,5 +1,22 @@
 import React, { Component } from "react"
 
+const InputComponent = (props) =>{
+	console.log(props)
+	return (
+		<form className="offset-md-3" onSubmit={props.onSubmit}>
+			<label>
+				<input 
+					type="text" 
+					autoComplete="true" 
+					placeholder={props.placeholder} 
+					value={props.value}
+					onChange={props.onChange}/>
+			</label>
+			<input type="submit" value="Submit" />
+		</form>
+	)
+}
+
 export class Input extends Component {
 	constructor(props){
 		super(props)
@@ -27,17 +44,12 @@ export class Input extends Component {
 
 	render() { 
 		return (
-			<form className="offset-md-3" onSubmit={this.handleSubmit}>
-				<label>
-					<input 
-						type="text" 
-						autoComplete="true" 
-						placeholder={this.state.placeholder} 
-						value={this.state.value}
-						onChange={this.handleChange}/>
-				</label>
-				<input type="submit" value="Submit" />
-			</form>
+			<InputComponent 
+				onSubmit={this.handleSubmit}
+				onChange={this.handleChange}
+				placeholder={this.state.placeholder} 
+				value={this.state.value}
+			/>
 		)
 	}
 }
